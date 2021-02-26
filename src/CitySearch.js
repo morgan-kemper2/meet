@@ -1,41 +1,63 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class CitySearch extends Component {
-    state = {
-        query:'',
-        suggestions: []
-    }
-    handleInputChanged = (event) => {
-        const value = event.target.value;
-        const suggestions = this.props.locations.filter((location) => {
-            return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-        });
-        this.setState({query: value, suggestions,});
-    }
-    handleItemClicked = (suggestion) => {
-        this.setState({
-            query: suggestion
-        });
-    }
+  state = {
+    locations: this.props.locations,
+    query: '',
+    suggestions: [],
+    showSuggestions: false,
+  };
+
+  handleInputChanged = (event) => {
+            const value = event.target.value;
+            const suggestions = this.props.locations.filter((location) => {
+                return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+            });
+            this.setState({query: value, suggestions,});
+    };
+
+  handleItemClicked = (suggestion) => {
+    this.setState({
+      query: suggestion,
+      suggestions: [],
+      showSuggestions: false,
+    });
+    this.props.updateEvents(suggestion);
+  };
+
   render() {
     return (
       <div className="CitySearch">
-        <input type="text" 
-        className="city" 
-        value={this.state.query}
-        onChange={this.handleInputChanged} 
-        />
-        <ul className='suggestions'>
+        <label>Name of city: </label>
+        <div>
+          <input
+            label="City name"
+            type="text"
+            className="citySearchInput"
+            value={this.state.query}
+            onChange={this.handleInputChanged}
+          />
+          <ul
+            className={
+              this.state.showSuggestions
+                ? 'suggestions showSuggestions'
+                : 'display-none'
+            }
+          >
             {this.state.suggestions.map((suggestion) => (
-                <li key = {suggestion}
-                onClick={()=> this.handleItemClicked(suggestion)}>
-                    {suggestion}
-                    </li>
+              <li
+                className="suggestionCity"
+                key={suggestion}
+                onClick={() => this.handleItemClicked(suggestion)}
+              >
+                {suggestion}
+              </li>
             ))}
-            <li key ='all'>
-                <b>See All Cities</b>
+            <li onClick={() => this.handleItemClicked('all')}>
+              <b>See all cities</b>
             </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     );
   }

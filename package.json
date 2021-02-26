@@ -2,7 +2,7 @@
   "name": "meet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://GCnomore.github.io/watspoppin",
+  "homepage": "https://morgan-kemper2.github.io/meet",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -15,7 +15,8 @@
     "react-dom": "^16.14.0",
     "react-scripts": "4.0.0",
     "recharts": "^1.8.5",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "xxx": "0.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
