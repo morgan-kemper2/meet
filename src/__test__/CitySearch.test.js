@@ -32,7 +32,7 @@ describe('CitySearch component', () => {
   });
 
   test('render city of suggestions', () => {
-    expect(CitySearchWrapper.find('.suggestions')).toHaveLength(1);
+    expect(CitySearchWrapper.find('.suggestions')).toHaveLength();
   });
 
   test('render list of suggestions correctly', () => {
