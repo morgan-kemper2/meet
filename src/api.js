@@ -1,7 +1,6 @@
 import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
-import { InfoAlert } from './Alert';
 
 export const extractLocations = (events) => {
   var extractLocations = events.map((event) => event.location);
@@ -23,7 +22,6 @@ export const getEvents = async () => {
     return {
       events: JSON.parse(events).events,
       locations: extractLocations(JSON.parse(events).events),
-      warningText: "working offline"
     };
   }
 
