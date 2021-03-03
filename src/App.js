@@ -3,8 +3,9 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents } from './api';
+import { getEvents, checkToken, getAccessToken } from './api';
 import './nprogress.css';
+import Login from './Login';
 
 
 class App extends Component {
@@ -60,6 +61,17 @@ class App extends Component {
   };
 
   componentDidMount() {
+    const accessToken = localStorage.getItem("access_token");
+    const validToken = accessToken !== null ? await checkToken(accessToken) : false;
+    this.setState({tokenCheck: validToken});
+    if (validToken === true) this.updateEvents()
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.mounted = true;
+    if (code && this.mounted === true && validToken === false){
+      this.setState({tokenCheck:true});
+      this.updateEvents()
+    }
     this.mounted = true;
     getEvents().then((response) => {
       if (this.mounted) {
@@ -77,7 +89,11 @@ class App extends Component {
 
   render() {
 
-    return (
+    return tokenCheck === false ? (
+      <div className="App">
+        <Login />
+        </div>
+    ) : ( 
       <div className="App">
         <CitySearch
           updateEvents={this.updateEvents}
