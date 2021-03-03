@@ -1,13 +1,8 @@
 {
   "files": {
     "main.css": "/meet/static/css/main.6daa6c42.chunk.css",
-<<<<<<< HEAD
-    "main.js": "/meet/static/js/main.c6ca4e30.chunk.js",
-    "main.js.map": "/meet/static/js/main.c6ca4e30.chunk.js.map",
-=======
-    "main.js": "/meet/static/js/main.e329b54b.chunk.js",
-    "main.js.map": "/meet/static/js/main.e329b54b.chunk.js.map",
->>>>>>> parent of b05e515... revert
+    "main.js": "/meet/static/js/main.76bd01a6.chunk.js",
+    "main.js.map": "/meet/static/js/main.76bd01a6.chunk.js.map",
     "runtime-main.js": "/meet/static/js/runtime-main.d9761bf8.js",
     "runtime-main.js.map": "/meet/static/js/runtime-main.d9761bf8.js.map",
     "static/js/2.4a6bf49a.chunk.js": "/meet/static/js/2.4a6bf49a.chunk.js",
@@ -24,10 +19,6 @@
     "static/js/runtime-main.d9761bf8.js",
     "static/js/2.4a6bf49a.chunk.js",
     "static/css/main.6daa6c42.chunk.css",
-<<<<<<< HEAD
-    "static/js/main.c6ca4e30.chunk.js"
-=======
-    "static/js/main.e329b54b.chunk.js"
->>>>>>> parent of b05e515... revert
+    "static/js/main.76bd01a6.chunk.js"
   ]
 }
